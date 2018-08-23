@@ -1,0 +1,35 @@
+<h1 align="center">~ 나눠요 ~</h1><br>
+
+<div align="right">
+    <%= link_to '나눠요', new_gife_path , :class => "button"%>
+</div>
+<br/>
+
+<table align="center" class="table" width="400px">
+  <thead class="thead">
+    <tr>
+      <th scope="col">작성자</th>
+      <th scope="col">제목</th>
+      <th scope="col">현거래상황</th>
+    </tr>
+  </thead>
+  
+  <% @gives.each do |give| %>
+    <tbody>
+      <tr onClick="location.href='/gives/<%=give.id%>'" style="cursor:pointer;">
+        <td><%= give.name %></td>
+        <td><%= give.title %></td>
+        <td>
+          <% if give.check == 0 %>
+            <b style="color:red;">진행중</b>
+          <% else %>
+            완료
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+  <%end%>
+</table>
+
+<hr>
+<%= link_to '뒤로가기', root_path %>

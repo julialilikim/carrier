@@ -1,0 +1,31 @@
+<h1 align="center">공지사항</h1><br>
+<P>NOTICE</P>
+
+<div align="right">
+    <%= link_to '글 작성하기', new_notice_path , :class => "button"%>
+</div>
+<br/>
+
+<table align="center" class="table" width="400px">
+  <thead class="thead">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">작성자</th>
+      <th scope="col">제목</th>
+      
+    </tr>
+  </thead>
+
+  <% @notices.each do |notice| %>
+    <tbody>
+      <tr onClick="location.href='/notices/<%=notice.id%>'" style="cursor:pointer;">
+        <th scope="row">no.<%= notice.id%></th>
+        <td><%= notice.name %></td>
+        <td><%= notice.title %></td>
+        
+      </tr>
+    </tbody>
+  <%end%>
+</table>
+<hr/>
+<!--<#%= link_to '뒤로가기', root_path %>-->

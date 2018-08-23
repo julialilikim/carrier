@@ -1,0 +1,35 @@
+<h1 align="center">~ 구해요 ~</h1><br>
+
+<div align="right">
+    <%= link_to '구해요', new_need_path , :class => "button"%>
+</div>
+<br/>
+
+<table align="center" class="table" width="400px">
+  <thead class="thead">
+    <tr>
+      <th scope="col">작성자</th>
+      <th scope="col">제목</th>
+      <th scope="col">현거래상황</th>
+    </tr>
+  </thead>
+
+  <% @needs.each do |need| %>
+    <tbody>
+      <tr onClick="location.href='/needs/<%=need.id%>'" style="cursor:pointer;">
+        <td><%= need.name %></td>
+        <td><%= need.title %></td>
+        <td>
+          <% if need.check == 0 %>
+            <b style="color:red;">진행중</b>
+          <% else %>
+            완료
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+  <%end%>
+</table>
+<hr/>
+<%= link_to '뒤로가기', root_path %>
+

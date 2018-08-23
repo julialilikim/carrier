@@ -1,0 +1,22 @@
+<%= form_for(@tip) do |f| %>
+
+  <div class="field">
+    <%= f.label :title,'제목' , :class =>"f"%><br>
+    <%= f.text_field :title , :class =>"form-control"%>
+  </div>
+  <br/>
+  <br/>
+  <div class="field">
+    <%= f.label :content,'내용' , :class =>"f"%><br>
+    <%= f.text_area :content , :class =>"form-control"%>
+  </div>
+  <br/><br/>
+  <div class="field">
+    <%= f.label :image,'이미지' , :class =>"f"%><br>
+    <%= f.file_field :image , :class =>"form-control"%>
+  </div>
+  <br/><br/>
+  <div class="actions">
+    <%= f.submit "제출", :class =>"button"%>
+  </div>
+<% end %>
